@@ -60,7 +60,7 @@ Install MaxMind's [GeoIP database](http://geolite.maxmind.com/download/geoip/dat
     Country: Germany - IP(s): 32
 
 ## Notes
-Please drop a mail <atma@convalesco.org> if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
+Please drop a mail if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
 
 # License
 **The MIT License (MIT)**
@@ -74,7 +74,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Author
-[Panagiotis Atmatzidis]
+[Panagiotis Atmatzidis] <atma@convalesco.org>
 
 [Panagiotis Atmatzidis]: http://www.convalesco.org 
 [ruby]: http://www.ruby-lang.org/en/
