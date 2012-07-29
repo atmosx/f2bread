@@ -1,7 +1,7 @@
 # f2bread
 
 ## Description
-**f2bread** is a [ruby][] script that extracts data from 'fail2ban.log' files. Fail2ban is a sort of lightweight *Intrusion Detection System*, for more info please visit the [project's homepage][http://www.fail2ban.org/wiki/index.php/Main_Page].
+**f2bread** is a [ruby][] script that extracts data from 'fail2ban.log' files. Fail2ban is a sort of lightweight *Intrusion Detection System*, for more info please visit the [project's homepage](http://www.fail2ban.org/wiki/index.php/Main_Page).
 
 ## Installation 
 In order to install this script you need the following gems:
@@ -10,7 +10,7 @@ In order to install this script you need the following gems:
     gem install geoip
     gem install time_diff
 
-Install MaxMind's [GeoIP database][http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz] under '/usr/share/local/' database.
+Install MaxMind's [GeoIP database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz) under `/usr/share/local/` database.
 
 ## Usage
     $ ruby19 f2bread.rb -h
@@ -60,7 +60,7 @@ Install MaxMind's [GeoIP database][http://geolite.maxmind.com/download/geoip/dat
     Country: Germany - IP(s): 32
 
 ## Notes
-Please [drop a mail][http://www.convalesco.org/index.php/about] if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
+Please [drop a mail](http://www.convalesco.org/index.php/about) if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
 
 # License
 **The MIT License (MIT)**
