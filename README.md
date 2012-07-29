@@ -60,7 +60,7 @@ Install MaxMind's [GeoIP database](http://geolite.maxmind.com/download/geoip/dat
     Country: Germany - IP(s): 32
 
 ## Notes
-Please drop a mail if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
+Please [drop a mail](http://www.convalesco.org/index.php/about) if you have a feature request, comments, etc. The program will be *pretefied* as soon as time permits. Since I don't have a 'fail2ban.log' that *protects* more than 1 protocols, I'm a bit short of material to run some tests. If you have such 'fail2ban.log' and you can share it, please share it.
 
 # License
 **The MIT License (MIT)**
@@ -75,7 +75,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 # Author
 [Panagiotis Atmatzidis] 
-email: <atma@convalesco.org>
 
 [Panagiotis Atmatzidis]: http://www.convalesco.org 
 [ruby]: http://www.ruby-lang.org/en/
