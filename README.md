@@ -28,10 +28,10 @@ Install MaxMind's [GeoIP database][http://geolite.maxmind.com/download/geoip/dat
     ===============================================================================
     Log file: '/Users/atma/Dropbox/Programming/Projects/Local/f2bread/fail2ban.log'
 
-    First entry:2011-07-23 02:04:51
-    Last entry	:2012-07-25 15:14:47 
+    First entry: 2011-07-23 02:04:51
+    Last  entry: 2012-07-25 15:14:47 
     Time frame:1 year, 3 days and 07:09:56
-    Banned I		Ps:1072
+    Banned IPs:1072
     Countries:70
     Protocol(s):[ssh-ipfw]
     Bans per day:2.91

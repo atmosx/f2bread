@@ -357,8 +357,8 @@ class F2bread
 		puts "=" * sbanner.length
 		puts sbanner
 		puts ""
-		printf("First entry:\t%s\n", fdate)
-		printf("Last entry:\t%s\n", ldate)
+		printf("First entry: %s\n", fdate)
+		printf("Last  entry: %s\n", ldate)
 		printf("Time frame:\t%s\n", tdiff[:diff])
 		printf("Banned IPs:\t%i\n", entries)
 		printf("Countries:\t%i\n", ucl.size)
