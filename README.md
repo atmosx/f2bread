@@ -10,7 +10,7 @@ In order to install this script you need the following gems:
     gem install geoip
     gem install time_diff
 
-Install MaxMind's [GeoIP database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz) under `/usr/share/local/` database.
+Install MaxMind's [GeoIP database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz) under `/usr/share/local/`.
 
 ## Usage
     $ ruby19 f2bread.rb -h
