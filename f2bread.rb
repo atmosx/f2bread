@@ -4,6 +4,15 @@
 
 =begin
 
+
+####
+# TODO
+# 1. Check for normal 'fail2ban.log' file
+# 2. adjust --sort options
+# 3. others to follow
+####
+
+
 Description
 -----------
 "f2bread" is a ruby script that I use to gather some basic info from 'fail2ban.log'. Any ideas, comments or complaints are more than welcome. Drop a mail.
@@ -67,7 +76,10 @@ $GeoIP = "/usr/share/local/GeoIP.dat"
 class F2bread
 	attr_accessor :log
 	def initialize(log)
-		raise ArgumentError, "No fail2ban Logfile" if log == nil
+		# check if Fail2ban.log exists and then check if it's valid!
+		raise ArgumentError, "No 'fail2ban.log' found, please supply path manually!" if File.exists?(log) == FALSE
+		raise ArgumentError, "Not valid 'fail2ban.log' file!" if File.read(log).scan(/fail2ban/) == FALSE # <-- THIS DOES NOT WORK! THE EXEC DOESN'T REACH THIS POINT!
+
 		@data_table = []
 		@log = log
 

@@ -1,0 +1,6 @@
+2012-07-29 Panagiotis Atmatzidis <atma@convalesco.org>
+
+	* f2bread.rb: first github commit - lots of bugs!!! This is an
+	alpha-release
+	* LICENSE.md: Markdown MIT license added
+	* Readme.md: Install instruction added
