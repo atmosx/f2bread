@@ -77,8 +77,12 @@ class F2bread
 	attr_accessor :log
 	def initialize(log)
 		# check if Fail2ban.log exists and then check if it's valid!
-		raise ArgumentError, "No 'fail2ban.log' found, please supply path manually!" if File.exists?(log) == FALSE
-		raise ArgumentError, "Not valid 'fail2ban.log' file!" if File.read(log).scan(/fail2ban/) == FALSE # <-- THIS DOES NOT WORK! THE EXEC DOESN'T REACH THIS POINT!
+		raise ArgumentError, "No fail2ban.log found!!!" if File.exists?(log) == FALSE
+		if File.exists?(log)
+			read = File.read(log)
+			check = read.scan(/fail2ban/)
+			puts check
+		end
 
 		@data_table = []
 		@log = log
