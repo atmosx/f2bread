@@ -455,7 +455,7 @@ optparse = OptionParser.new do |opts|
 		options[:log] = log
 	end
 
-	opts.on('-n', '--no N', Integer, 'By default all entries are listed. This option lets you choose the no of entries you want to display from top down') do |no|
+	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are listed.') do |no|
 		options[:no] = no
 	end
 
