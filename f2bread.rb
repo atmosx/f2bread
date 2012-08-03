@@ -77,12 +77,7 @@ class F2bread
 	attr_accessor :log
 	def initialize(log)
 		# check if Fail2ban.log exists and then check if it's valid!
-		raise ArgumentError, "No fail2ban.log found!!!" if File.exists?(log) == FALSE
-		if File.exists?(log)
-			read = File.read(log)
-			check = read.scan(/fail2ban/)
-			puts check
-		end
+		raise ArgumentError, "No fail2ban.log found!!!" if File.exists?(log) == FALSE # <-- this is not needed right now!
 
 		@data_table = []
 		@log = log
@@ -325,7 +320,7 @@ class F2bread
 			"UG" => "Uganda",
 			"UK" => "United_Kingdom",
 			"UM" => "USMinor_Outlying_Islands",
-			"US" => "United States (USA)",
+			"US" => "United_States (USA)",
 			"UY" => "Uruguay",
 			"UZ" => "Uzbekistan",
 			"VA" => "Vatican City State",
@@ -455,7 +450,7 @@ optparse = OptionParser.new do |opts|
 		options[:log] = log
 	end
 
-	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are listed.') do |no|
+	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are displayed.') do |no|
 		options[:no] = no
 	end
 
@@ -490,9 +485,11 @@ optparse.parse!
 # adjust $logfile and $no 
 if options[:log]  
 	$logfile = options[:log] 
+	$f2b = F2bread.new($logfile)
 else	
 	if File.exists?('/var/log/fail2ban.log')
 		$logfile = '/var/log/fail2ban.log'
+		$f2b = F2bread.new($logfile)
 	else
 		puts $banner
 		puts "No fail2ban.log found!"
