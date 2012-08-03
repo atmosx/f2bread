@@ -475,9 +475,9 @@ optparse = OptionParser.new do |opts|
 	end
 
 	opts.on('-v', '--version', 'Display version') do
-    puts $banner
-    exit
-  end
+		puts $banner
+		exit
+	end
 
 	opts.on('-h', '--help', 'Display help menu') do
 		puts opts
@@ -487,33 +487,39 @@ end
 
 optparse.parse!
 
-#
-# exec code starts here
-# 
-
-# adjust $logfile and $no
-if options[:log] ? $logfile = options[:log] : $logfile = '/var/log/fail2ban.log'
-	if options[:no] ? $no = options[:no] : $no = 0
-
-		# $logfile defined
-		$f2b = F2bread.new($logfile)
+# adjust $logfile and $no 
+if options[:log]  
+	$logfile = options[:log] 
+else	
+	if File.exists?('/var/log/fail2ban.log')
+		$logfile = '/var/log/fail2ban.log'
+	else
 		puts $banner
-
-		if options[:info]
-			$f2b.info
-		elsif options[:sort]
-			if options[:sort] == :date
-				$f2b.sort_by_date($no)
-			elsif options[:sort] == :country
-				$f2b.sort_by_country($no)
-			elsif options[:sort] == :ip
-				$f2b.sort_by_ip($no)
-			else
-				puts "Option not recognized for '--sort', please read '--help'"
-			end
-		else
-			puts "Option not recognized. Type '#{__FILE__} -h' "
-
-		end
+		puts "No fail2ban.log found!"
+		puts "Type '#{__FILE__} -h' for help"
+		exit
 	end
+end
+
+if options[:no] 
+	$no = options[:no] 
+else
+	$no = 0
+end
+
+# exec starts here
+if options[:info]
+	$f2b.info
+elsif options[:sort]
+	if options[:sort] == :date
+		$f2b.sort_by_date($no)
+	elsif options[:sort] == :country
+		$f2b.sort_by_country($no)
+	elsif options[:sort] == :ip
+		$f2b.sort_by_ip($no)
+	else
+		puts "Option not recognized for '--sort', please read '--help'"
+	end
+else
+	puts "Option not recognized. Type '#{__FILE__} -h' "
 end
