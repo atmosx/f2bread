@@ -4,37 +4,20 @@
 
 =begin
 
-
-####
-# TODO
-# 1. Check for normal 'fail2ban.log' file [ok]
-# 2. Create more 'easy to read' errors for OptionParser when -s not_listed_option and -n 'STRING' are issued
-# 3. others to follow
-####
-
-
 Description
------------
-"f2bread" is a ruby script that I use to gather some basic info from 'fail2ban.log'. Any ideas, comments or complaints are more than welcome. Drop a mail.
+===========
+"f2bread" is a ruby script that I use to gather some basic info from 'fail2ban.log'. Any ideas, comments or complaints are more than welcome. 
+Just drop a mail :-)
 
 License
 =======
 The MIT License (MIT)
 Copyright (c) 2012 Panagiotis Atmatzidis <atma[at]convalesco.org>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
-to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+For more read: https://github.com/atmosx/f2bread/blob/master/LICENSE.md
 
 Notes
 =====
-Note that this is an 'alpha' release which was meant mostly for personal usage. It certainly contains bugs. I'll try to improve and add some more
+Note that this is an 'alpha' release which was meant mostly for personal usage. It certainly contains bugs. I'll try to improve the code and add 
 functionalities when time permits. For now, "works".
 
 The script was written using ruby19. With minor changes should run on ruby18 though. 
