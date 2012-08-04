@@ -7,8 +7,8 @@
 
 ####
 # TODO
-# 1. Check for normal 'fail2ban.log' file
-# 2. adjust --sort options
+# 1. Check for normal 'fail2ban.log' file [ok]
+# 2. Create more 'easy to read' errors for OptionParser when -s not_listed_option and -n 'STRING' are issued
 # 3. others to follow
 ####
 
@@ -440,7 +440,7 @@ end
 
 
 #optparse options
-options = {}                         
+options = {:no => 0}                         
 
 optparse = OptionParser.new do |opts|
 
@@ -451,7 +451,11 @@ optparse = OptionParser.new do |opts|
 	end
 
 	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are displayed.') do |no|
-		options[:no] = no
+		if no > 0
+			options[:no] = no
+		else
+			warn "Negative value is not accepted. Using default '0'"
+		end
 	end
 
 	# next version
@@ -499,7 +503,13 @@ else
 end
 
 if options[:no] 
-	$no = options[:no] 
+	begin
+		$no = Integer(options[:no])
+	rescue ArgumentError
+		puts "#{$no} is not an Integer!"
+	else
+		true
+	end	
 else
 	$no = 0
 end
