@@ -51,7 +51,7 @@ require 'time_diff'
 
 # Global vars
 $version = "0.0.1-alpha 2012"
-$banner = "#{__FILE__} #{$version}"
+$banner = "#{__FILE__} #{$version} - Panagiotis Atmatzidis 2012\n--------------------------------------------------------\n"
 $GeoIP = "/usr/share/local/GeoIP.dat"
 
 
