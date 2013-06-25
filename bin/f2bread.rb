@@ -2,6 +2,10 @@
 
 require 'f2bread'
 
+# Global vars
+$version = "0.0.1 2013"
+$banner = "#{__FILE__} #{$version}\n--------------------------------------------------------\n"
+$GeoIP = "/usr/share/local/GeoIP.dat"
 
 #optparse options
 options = {:no => 0}                         

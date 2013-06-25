@@ -7,7 +7,8 @@ Gem::Specification.new do |s|
   s.description = "A simple gem that reads 'fail2ban.log' and displays statistics"
   s.authors     = ["Panagiotis Atmatzidis"]
   s.email       = 'atma@convalesco.org'
-  #s.files       = ["bin/f2bread"]
-  s.homepage    =
-    'http://rubygems.org/gems/f2bread'
+  s.files       = ["bin/f2bread"]
+  s.homepage    = 'https://github.com/atmosx/f2bread'
+  s.add_dependency "geoip", "1.2.1"
+  s.add_dependency "time_diff", "0.3.0"
 end

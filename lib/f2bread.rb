@@ -6,8 +6,7 @@
 
 Description
 ===========
-"f2bread" is a ruby script that I use to gather some basic info from 'fail2ban.log'. Any ideas, comments or complaints are more than welcome. 
-Just drop a mail :-)
+'f2bread' library file for f2bread gem.
 
 License
 =======
@@ -15,40 +14,12 @@ The MIT License (MIT)
 Copyright (c) 2012 Panagiotis Atmatzidis <atma[at]convalesco.org>
 For more read: https://github.com/atmosx/f2bread/blob/master/LICENSE.md
 
-Notes
-=====
-In order to get a quick offline IP refference, I used MaxMind's free GeoIP database which comes under "Attribution-ShareAlike 3.0" license. 
-You should install this database manually since I'm not sure if I can "ship" it or put it on GitHub along with the script.
-Here is the package: http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz which you need to place 
-at "/usr/share/local/" or elsewhere if you change the $GeoIP path.
-
-Gem Installation
-================
-$ gem install geoip time_diff
-
-Examples
-========
-Show general info about specific fail2ban
-$ ruby19 f2bread.rb -l /path/to/fail2ban.log -i
-
-Show the top 10 entries per IP frequency
-$ ruby19 f2bread.rb -l /path/to/fail2ban.log -s ip -n 10 
-
-Show the top 5 banned countries, assume path /var/log/fail2ban.log
-$ ruby19 f2bread.rb -s country -n 5
-
 =end
 
 require 'optparse'
 require 'geoip'
 #require 'socket'
 require 'time_diff'
-
-# Global vars
-$version = "0.0.1-alpha 2012"
-$banner = "#{__FILE__} #{$version} - Panagiotis Atmatzidis 2012\n--------------------------------------------------------\n"
-$GeoIP = "/usr/share/local/GeoIP.dat"
-
 
 # class starts here
 class F2bread
@@ -415,96 +386,3 @@ class F2bread
 		end
 	end
 end
-
-
-# #optparse options
-# options = {:no => 0}                         
-
-# optparse = OptionParser.new do |opts|
-
-# 	opts.banner = "Usage: f2bread -l /path/to/fail2ban.log -s country -n 5\n"
-
-# 	opts.on('-l', '--log FILE', 'Define the location of fail2ban.log. Default is /var/log/fail2ban.log') do |log|
-# 		options[:log] = log
-# 	end
-
-# 	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are displayed.') do |no|
-# 		if no > 0
-# 			options[:no] = no
-# 		else
-# 			warn "Negative value is not accepted. Using default '0'"
-# 		end
-# 	end
-
-# 	# next version
-# 	# opts.on('-r', '--resolv', 'Resolv hostnames on IP addresses') do |resolv|
-# 	# options[:resolv] = resolv
-# 	# end
-
-# 	opts.on('-i', '--info', 'Display fail2ban.log summary') do |info|
-# 		options[:info] = info
-# 	end
-
-# 	# http://ruby.about.com/od/advancedruby/a/optionparser2.htm
-# 	options[:sort] = :yes
-# 	opts.on('-s', '--sort OPT', [:date, :country, :ip], 'Sorts by [date, country, ip (ip frequency)]') do |sort|
-# 		options[:sort] = sort
-# 	end
-
-# 	opts.on('-v', '--version', 'Display version') do
-# 		puts $banner
-# 		exit
-# 	end
-
-# 	opts.on('-h', '--help', 'Display help menu') do
-# 		puts opts
-# 		exit
-# 	end
-# end
-
-# optparse.parse!
-
-# # adjust $logfile and $no 
-# if options[:log]  
-# 	$logfile = options[:log] 
-# 	$f2b = F2bread.new($logfile)
-# else	
-# 	if File.exists?('/var/log/fail2ban.log')
-# 		$logfile = '/var/log/fail2ban.log'
-# 		$f2b = F2bread.new($logfile)
-# 	else
-# 		puts $banner
-# 		puts "No fail2ban.log found!"
-# 		puts "Type '#{__FILE__} -h' for help"
-# 		exit
-# 	end
-# end
-
-# if options[:no] 
-# 	begin
-# 		$no = Integer(options[:no])
-# 	rescue ArgumentError
-# 		puts "#{$no} is not an Integer!"
-# 	else
-# 		true
-# 	end	
-# else
-# 	$no = 0
-# end
-
-# # exec starts here
-# if options[:info]
-# 	$f2b.info
-# elsif options[:sort]
-# 	if options[:sort] == :date
-# 		$f2b.sort_by_date($no)
-# 	elsif options[:sort] == :country
-# 		$f2b.sort_by_country($no)
-# 	elsif options[:sort] == :ip
-# 		$f2b.sort_by_ip($no)
-# 	else
-# 		puts "Option not recognized for '--sort', please read '--help'"
-# 	end
-# else
-# 	puts "Option not recognized. Type '#{__FILE__} -h' "
-# end
