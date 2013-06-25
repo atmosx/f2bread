@@ -6,7 +6,6 @@
 ## Installation 
 In order to install this script you need the following gems:
   
-    gem install optparse
     gem install geoip
     gem install time_diff
 

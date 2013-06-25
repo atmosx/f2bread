@@ -18,7 +18,7 @@ For more read: https://github.com/atmosx/f2bread/blob/master/LICENSE.md
 Notes
 =====
 Note that this is an 'alpha' release which was meant mostly for personal usage. It certainly contains bugs. I'll try to improve the code and add 
-functionalities when time permits. For now, "works".
+functionalities when time permits. For now, "works" for ruby19 and ruby20.
 
 In order to get a quick offline IP refference, I used MaxMind's free GeoIP database which comes under "Attribution-ShareAlike 3.0" license. 
 You should install this database manually since I'm not sure if I can "ship" it or put it on GitHub along with the script.
@@ -27,7 +27,7 @@ at "/usr/share/local/" or elsewhere if you change the $GeoIP path.
 
 Gem Installation
 ================
-$ gem install optparse geoip time_diff
+$ gem install geoip time_diff
 
 Examples
 ========
