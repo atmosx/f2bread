@@ -17,9 +17,6 @@ For more read: https://github.com/atmosx/f2bread/blob/master/LICENSE.md
 
 Notes
 =====
-Note that this is an 'alpha' release which was meant mostly for personal usage. It certainly contains bugs. I'll try to improve the code and add 
-functionalities when time permits. For now, "works" for ruby19 and ruby20.
-
 In order to get a quick offline IP refference, I used MaxMind's free GeoIP database which comes under "Attribution-ShareAlike 3.0" license. 
 You should install this database manually since I'm not sure if I can "ship" it or put it on GitHub along with the script.
 Here is the package: http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz which you need to place 
@@ -420,94 +417,94 @@ class F2bread
 end
 
 
-#optparse options
-options = {:no => 0}                         
+# #optparse options
+# options = {:no => 0}                         
 
-optparse = OptionParser.new do |opts|
+# optparse = OptionParser.new do |opts|
 
-	opts.banner = "Usage: f2bread -l /path/to/fail2ban.log -s country -n 5\n"
+# 	opts.banner = "Usage: f2bread -l /path/to/fail2ban.log -s country -n 5\n"
 
-	opts.on('-l', '--log FILE', 'Define the location of fail2ban.log. Default is /var/log/fail2ban.log') do |log|
-		options[:log] = log
-	end
+# 	opts.on('-l', '--log FILE', 'Define the location of fail2ban.log. Default is /var/log/fail2ban.log') do |log|
+# 		options[:log] = log
+# 	end
 
-	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are displayed.') do |no|
-		if no > 0
-			options[:no] = no
-		else
-			warn "Negative value is not accepted. Using default '0'"
-		end
-	end
+# 	opts.on('-n', '--no N', Integer, 'Number of top entries to be displayed. By default all entries are displayed.') do |no|
+# 		if no > 0
+# 			options[:no] = no
+# 		else
+# 			warn "Negative value is not accepted. Using default '0'"
+# 		end
+# 	end
 
-	# next version
-	# opts.on('-r', '--resolv', 'Resolv hostnames on IP addresses') do |resolv|
-	# options[:resolv] = resolv
-	# end
+# 	# next version
+# 	# opts.on('-r', '--resolv', 'Resolv hostnames on IP addresses') do |resolv|
+# 	# options[:resolv] = resolv
+# 	# end
 
-	opts.on('-i', '--info', 'Display fail2ban.log summary') do |info|
-		options[:info] = info
-	end
+# 	opts.on('-i', '--info', 'Display fail2ban.log summary') do |info|
+# 		options[:info] = info
+# 	end
 
-	# http://ruby.about.com/od/advancedruby/a/optionparser2.htm
-	options[:sort] = :yes
-	opts.on('-s', '--sort OPT', [:date, :country, :ip], 'Sorts by [date, country, ip (ip frequency)]') do |sort|
-		options[:sort] = sort
-	end
+# 	# http://ruby.about.com/od/advancedruby/a/optionparser2.htm
+# 	options[:sort] = :yes
+# 	opts.on('-s', '--sort OPT', [:date, :country, :ip], 'Sorts by [date, country, ip (ip frequency)]') do |sort|
+# 		options[:sort] = sort
+# 	end
 
-	opts.on('-v', '--version', 'Display version') do
-		puts $banner
-		exit
-	end
+# 	opts.on('-v', '--version', 'Display version') do
+# 		puts $banner
+# 		exit
+# 	end
 
-	opts.on('-h', '--help', 'Display help menu') do
-		puts opts
-		exit
-	end
-end
+# 	opts.on('-h', '--help', 'Display help menu') do
+# 		puts opts
+# 		exit
+# 	end
+# end
 
-optparse.parse!
+# optparse.parse!
 
-# adjust $logfile and $no 
-if options[:log]  
-	$logfile = options[:log] 
-	$f2b = F2bread.new($logfile)
-else	
-	if File.exists?('/var/log/fail2ban.log')
-		$logfile = '/var/log/fail2ban.log'
-		$f2b = F2bread.new($logfile)
-	else
-		puts $banner
-		puts "No fail2ban.log found!"
-		puts "Type '#{__FILE__} -h' for help"
-		exit
-	end
-end
+# # adjust $logfile and $no 
+# if options[:log]  
+# 	$logfile = options[:log] 
+# 	$f2b = F2bread.new($logfile)
+# else	
+# 	if File.exists?('/var/log/fail2ban.log')
+# 		$logfile = '/var/log/fail2ban.log'
+# 		$f2b = F2bread.new($logfile)
+# 	else
+# 		puts $banner
+# 		puts "No fail2ban.log found!"
+# 		puts "Type '#{__FILE__} -h' for help"
+# 		exit
+# 	end
+# end
 
-if options[:no] 
-	begin
-		$no = Integer(options[:no])
-	rescue ArgumentError
-		puts "#{$no} is not an Integer!"
-	else
-		true
-	end	
-else
-	$no = 0
-end
+# if options[:no] 
+# 	begin
+# 		$no = Integer(options[:no])
+# 	rescue ArgumentError
+# 		puts "#{$no} is not an Integer!"
+# 	else
+# 		true
+# 	end	
+# else
+# 	$no = 0
+# end
 
-# exec starts here
-if options[:info]
-	$f2b.info
-elsif options[:sort]
-	if options[:sort] == :date
-		$f2b.sort_by_date($no)
-	elsif options[:sort] == :country
-		$f2b.sort_by_country($no)
-	elsif options[:sort] == :ip
-		$f2b.sort_by_ip($no)
-	else
-		puts "Option not recognized for '--sort', please read '--help'"
-	end
-else
-	puts "Option not recognized. Type '#{__FILE__} -h' "
-end
+# # exec starts here
+# if options[:info]
+# 	$f2b.info
+# elsif options[:sort]
+# 	if options[:sort] == :date
+# 		$f2b.sort_by_date($no)
+# 	elsif options[:sort] == :country
+# 		$f2b.sort_by_country($no)
+# 	elsif options[:sort] == :ip
+# 		$f2b.sort_by_ip($no)
+# 	else
+# 		puts "Option not recognized for '--sort', please read '--help'"
+# 	end
+# else
+# 	puts "Option not recognized. Type '#{__FILE__} -h' "
+# end
