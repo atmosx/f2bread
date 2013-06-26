@@ -310,7 +310,7 @@ class F2bread
 		ucl = [] # unique country list
 		upl = [] # unique protocol list
 		@data_table.each { |line| c = line.split(' ')[5]; ucl << c if ucl.include?(c) == false} # create the ucl list
-		@data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the ucl list
+		@data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the upl list
 		upl.size > 1 ? upl_print = upl.size.join(', ') : upl_print = upl[0]
 		ban_avg = entries.to_f/((tdiff[:year] * 365) + (tdiff[:month] * 30) + (tdiff[:week] * 7) + tdiff[:day]).to_f
 		sbanner = "Log file: '#{f2blog}'"
