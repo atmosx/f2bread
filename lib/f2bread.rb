@@ -32,8 +32,13 @@ class F2bread
 		@log = log
 
 		# grep lines that containt the keyword 'Ban' from log file
-		lines = File.readlines(log).select {|line| line.match /Ban/}
-
+		begin
+			lines = File.readlines(log).select {|line| line.match /Ban/}
+		rescue Errno::EACCES
+			puts "Permission denied - #{log} (Errno::EACCES)"
+			puts "You don't have permissions to read #{@log}, use 'sudo'"
+			exit
+		end
 		# Available internet country codes
 		cdc = {
 			"AD" => "Andorra",
@@ -312,7 +317,8 @@ class F2bread
 		@data_table.each { |line| c = line.split(' ')[5]; ucl << c if ucl.include?(c) == false} # create the ucl list
 		@data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the upl list
 		upl.size > 1 ? upl_print = upl.size.join(', ') : upl_print = upl[0]
-		ban_avg = entries.to_f/((tdiff[:year] * 365) + (tdiff[:month] * 30) + (tdiff[:week] * 7) + tdiff[:day]).to_f
+		bavg = entries.to_f/((tdiff[:year] * 365) + (tdiff[:month] * 30) + (tdiff[:week] * 7) + tdiff[:day]).to_f
+		bavg == 'Inf'? ban_avg = "Wait for 24 hours to pass" : ban_avg = b_avg
 		sbanner = "Log file: '#{f2blog}'"
 		puts "=" * sbanner.length
 		puts sbanner
