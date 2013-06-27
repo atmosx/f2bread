@@ -16,7 +16,7 @@ optparse = OptionParser.new do |opts|
 
 	opts.banner = "Usage: f2bread -l /path/to/fail2ban.log -s country -n 5\n"
 
-	opts.on('-l', '--log FILE', 'Define the location of fail2ban.log. Default is /var/log/fail2ban.log') do |log|
+	opts.on('-l', '--log FILE', 'Define the location of fail2ban.log. Default is /var/log/fail2ban.log, requires root priviledges') do |log|
 		options[:log] = log
 	end
 

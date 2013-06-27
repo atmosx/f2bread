@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "f2bread"
   gem.homepage = "http://github.com/atmosx/f2bread"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Fail2ban statistics}
+  gem.description = %Q{A simple gem that reads 'fail2ban.log' and displays statistics}
   gem.email = "atma@convalesco.org"
   gem.authors = ["Atmatzidis Panagiotis"]
   # dependencies defined in Gemfile
