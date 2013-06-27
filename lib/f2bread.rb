@@ -313,10 +313,10 @@ class F2bread
 		ldate = "#{@data_table[entries-1].split(' ')[0]} #{@data_table[entries-1].split(' ')[1]} " #Last entry date
 		tdiff = Time.diff(fdate, ldate) #time diference
 		ucl = [] # unique country list
-		upl = [] # unique protocol list
+		# upl = [] # unique protocol list
 		@data_table.each { |line| c = line.split(' ')[5]; ucl << c if ucl.include?(c) == false} # create the ucl list
-		@data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the upl list
-		upl.size > 1 ? upl_print = upl.size.join(', ') : upl_print = upl[0]
+		# @data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the upl list
+		# upl.size > 1 ? upl_print = upl.size.join(', ') : upl_print = upl[0]
 		bavg = entries.to_f/((tdiff[:year] * 365) + (tdiff[:month] * 30) + (tdiff[:week] * 7) + tdiff[:day]).to_f
 		bavg == 'Inf'? ban_avg = "Wait for 24 hours to pass" : ban_avg = b_avg
 		sbanner = "Log file: '#{f2blog}'"
@@ -328,7 +328,7 @@ class F2bread
 		printf("Time frame:\t%s\n", tdiff[:diff])
 		printf("Banned IPs:\t%i\n", entries)
 		printf("Countries:\t%i\n", ucl.size)
-		printf("Protocol(s):\t%s\n", upl_print)
+		# printf("Protocol(s):\t%s\n", upl_print)
 		printf("Bans per day:\t%0.2f\n\n", ban_avg)
 		puts "Most banned IP(s) by fail2ban: "
 		puts "-------------------------"
