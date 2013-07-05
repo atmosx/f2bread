@@ -318,7 +318,7 @@ class F2bread
 		# @data_table.each { |line| c = line.split(' ')[2]; upl << c if upl.include?(c) == false} # create the upl list
 		# upl.size > 1 ? upl_print = upl.size.join(', ') : upl_print = upl[0]
 		bavg = entries.to_f/((tdiff[:year] * 365) + (tdiff[:month] * 30) + (tdiff[:week] * 7) + tdiff[:day]).to_f
-		bavg == 'Inf'? ban_avg = "Wait for 24 hours to pass" : ban_avg = b_avg
+		bavg == 'Inf'? ban_avg = "Wait for 24 hours to pass" : ban_avg = bavg
 		sbanner = "Log file: '#{f2blog}'"
 		puts "=" * sbanner.length
 		puts sbanner
