@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "f2bread"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Atmatzidis Panagiotis"]
-  s.date = "2013-06-27"
+  s.date = "2013-07-01"
   s.description = "A simple gem that reads 'fail2ban.log' and displays statistics"
   s.email = "atma@convalesco.org"
   s.executables = ["f2bread"]
